@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ITS.Prova.Site.Models.FuncionarioViewModel>
+
+@{
+    ViewBag.Title = "Lista de Funcionários";
+}
+
+<h2>Lista de Funcionários</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Nome Completo")
+        </th>
+        <th>
+            @Html.DisplayName("RG")
+        </th>
+        <th>
+            @Html.DisplayName("CPF")
+        </th>
+        <th>
+            @Html.DisplayName("Data Nascimento")
+        </th>
+        <th>
+            @Html.DisplayName("Data Admissão")
+        </th>
+        <th></th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeCompleto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataNascimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataAdmissao)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    }
+</table>

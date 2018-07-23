@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ITS.Prova.Site.Models.FuncionarioFeriasViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Nome Completo")
+        </th>
+        <th>
+            @Html.DisplayName("Data Inicio")
+
+        </th>
+        <th>
+            @Html.DisplayName("Data Término")
+
+        </th>
+        <th>
+            @Html.DisplayName("Actions")
+
+        </th>
+        <th></th>
+    </tr>
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Funcionario.NomeCompleto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataInicio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataTermino)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.FeriasId })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.FeriasId })
+                </td>
+            </tr>
+        }
+    }
+</table>
